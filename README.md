@@ -1,6 +1,6 @@
 ## Simulation de modèle SIR : un outil pour visualiser les épidémies.
 
-[Qu'est-ce que le modèle SIR](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model)
+[Qu'est-ce que le modèle SIR ?](https://en.wikipedia.org/wiki/Compartmental_models_in_epidemiology#The_SIR_model)
 
 Librairies utilisées : Java 17, Swing and JFreeChart 1.5.1
 
