@@ -7,4 +7,4 @@ Tools: Java 17, Swing and JFreeChart 1.5.1
 ### Screenshots:
 ![Simple graph](https://gameosu.s-ul.eu/XfohheuG)
 ![Simple graph 2](https://gameosu.s-ul.eu/2SjLx6ky)
-Author: Loïc ABEL, Clément Gehin
+Author: Loïc ABEL, Clément GEHIN
