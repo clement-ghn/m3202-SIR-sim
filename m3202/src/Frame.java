@@ -1,3 +1,4 @@
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -6,6 +7,9 @@ import javax.swing.event.DocumentListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -19,7 +23,7 @@ import org.jfree.chart.ChartPanel;
 
 public class Frame {
     JFrame f;
-    Frame() {
+    Frame() throws IOException {
         f = new JFrame("Simulation du modèle SIR");
 
         final int[] varTaille = {1000};
@@ -163,11 +167,17 @@ public class Frame {
         f.add(panelButton);
         f.add(panelChart);
         f.getContentPane().add(BorderLayout.NORTH, panelText);
-        f.getContentPane().add(BorderLayout.CENTER, panelButton);
-        f.getContentPane().add(BorderLayout.SOUTH, panelChart);
+        f.getContentPane().add(BorderLayout.SOUTH, panelButton);
+        f.getContentPane().add(BorderLayout.CENTER, panelChart);
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         f.setSize(screenSize.width, screenSize.height);
         f.setVisible(true);
+
+        //Création de l'image à partir du Panel contenant le graphique
+        Container c = f.getContentPane();
+        BufferedImage im = new BufferedImage(c.getWidth(), c.getHeight(), BufferedImage.TYPE_INT_ARGB);
+        c.paint(im.getGraphics());
+        ImageIO.write(im, "PNG", new File("graphique.png"));
     }
 
     ArrayList generate(int[] generations, int[] taille, int[] infectes, double[] contagion, double[] seuilProx, double[] seuilRet) {
@@ -238,7 +248,7 @@ public class Frame {
         return dataFormatted;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new Frame();
     }
 }
